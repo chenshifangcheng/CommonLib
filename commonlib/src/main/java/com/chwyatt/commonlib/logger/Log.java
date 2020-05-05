@@ -6,16 +6,25 @@ import java.util.Locale;
 public class Log {
 
     public static final String TAG = "CommonLibLog";
-    private static final boolean FORCE_LOGGING = true; // Stop shipping if true
+    private static final boolean FORCE_LOGGING = false; // Stop shipping if true
 
+    public static boolean VERBOSE = isLoggable(android.util.Log.VERBOSE);
     public static boolean DEBUG = isLoggable(android.util.Log.DEBUG);
     public static boolean INFO = isLoggable(android.util.Log.INFO);
-    public static boolean VERBOSE = isLoggable(android.util.Log.VERBOSE);
     public static boolean WARN = isLoggable(android.util.Log.WARN);
     public static boolean ERROR = isLoggable(android.util.Log.ERROR);
 
-    // Debug for lifecycle components such as Activity or Fragment
-    public static boolean DEBUG4LIFECYCLE = true; // Stop shipping if true
+    public static void v(String prefix, String format, Object... args) {
+        if (VERBOSE) {
+            android.util.Log.v(TAG, buildMessage(prefix, format, args));
+        }
+    }
+
+    public static void v(Object objectPrefix, String format, Object... args) {
+        if (VERBOSE) {
+            android.util.Log.v(TAG, buildMessage(getPrefixFromObject(objectPrefix), format, args));
+        }
+    }
 
     public static void d(String prefix, String format, Object... args) {
         if (DEBUG) {
@@ -29,12 +38,6 @@ public class Log {
         }
     }
 
-    public static void d4lifecycle(Object objectPrefix, String format, Object... args) {
-        if (DEBUG4LIFECYCLE) {
-            android.util.Log.d(TAG, /*objectPrefix +*/ buildMessage(getPrefixFromObject(objectPrefix), format, args));
-        }
-    }
-
     public static void i(String prefix, String format, Object... args) {
         if (INFO) {
             android.util.Log.i(TAG, buildMessage(prefix, format, args));
@@ -44,6 +47,18 @@ public class Log {
     public static void i(Object objectPrefix, String format, Object... args) {
         if (INFO) {
             android.util.Log.i(TAG, buildMessage(getPrefixFromObject(objectPrefix), format, args));
+        }
+    }
+
+    public static void w(String prefix, String format, Object... args) {
+        if (WARN) {
+            android.util.Log.w(TAG, buildMessage(prefix, format, args));
+        }
+    }
+
+    public static void w(Object objectPrefix, String format, Object... args) {
+        if (WARN) {
+            android.util.Log.w(TAG, buildMessage(getPrefixFromObject(objectPrefix), format, args));
         }
     }
 

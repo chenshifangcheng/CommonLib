@@ -17,79 +17,79 @@ public class BaseFragment extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        Log.d4lifecycle(this, "onAttach");
+        Log.d(this, "onAttach");
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d4lifecycle(this, "onCreate");
+        Log.d(this, "onCreate");
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        Log.d4lifecycle(this, "onCreateView");
+        Log.d(this, "onCreateView");
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Log.d4lifecycle(this, "onViewCreated");
+        Log.d(this, "onViewCreated");
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        Log.d4lifecycle(this, "onActivityCreated");
+        Log.d(this, "onActivityCreated");
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        Log.d4lifecycle(this, "onStart");
+        Log.d(this, "onStart");
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        Log.d4lifecycle(this, "onResume");
+        Log.d(this, "onResume");
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        Log.d4lifecycle(this, "onPause");
+        Log.d(this, "onPause");
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        Log.d4lifecycle(this, "onStop");
+        Log.d(this, "onStop");
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        Log.d4lifecycle(this, "onDestroyView");
+        Log.d(this, "onDestroyView");
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d4lifecycle(this, "onDestroy");
+        Log.d(this, "onDestroy");
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        Log.d4lifecycle(this, "onDetach");
+        Log.d(this, "onDetach");
     }
 
     @Override
     public void onAttachFragment(@NonNull Fragment childFragment) {
         super.onAttachFragment(childFragment);
-        Log.d4lifecycle(this, "onAttachFragment");
+        Log.d(this, "onAttachFragment");
     }
 }
